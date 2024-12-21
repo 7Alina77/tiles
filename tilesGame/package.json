@@ -14,7 +14,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
-  "homepage": "https://7alina77.github.io/tiles/tilesGame",
+  "homepage": "https://7alina77.github.io/tiles",
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
