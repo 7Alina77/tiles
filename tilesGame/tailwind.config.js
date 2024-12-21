@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['"PT Serif"', 'Georgia', 'serif'],
+      },
       dropShadow: {
         'cyanShadow': '4px 3px 4px rgba(8, 51, 68, 0.4)',
       },
