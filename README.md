@@ -9,4 +9,5 @@ https://7alina77.github.io/tiles/
 ## Скрипты
 cd tiles
 cd tilesGame
-npm run dev - чтобы собрать проект
+npm run build - для сборки
+npm run dev - для сборки и запуска на сервере
