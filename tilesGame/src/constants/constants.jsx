@@ -12,7 +12,6 @@ const cardImages = [
 export function randomizeCards() {
   const randomizedCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
-    .map((card) => ({...card, id: Math.random(), isOpen: false}))
-    console.log(randomizedCards);
+    .map((card) => ({...card, id: Math.random(), isOpen: false, isMatch: false}))
     return randomizedCards;
 }

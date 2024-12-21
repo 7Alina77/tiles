@@ -14,12 +14,19 @@ function App() {
     setLaps(0);
   },[]);
 
+  useEffect(() => {
+    const openCards = cards.filter((card) => card.isOpen && !card.isMatch);
+    if (openCards.length === 2) {
+      setLaps((prevLaps) => prevLaps + 1);
+    }
+  }, [cards]);
+
   return (
     <>
     <div className='font-serif min-h-screen mx-auto my-0 p-4 text-center bg-custom-gradient-alpha'>
       <Title></Title>
       <Button randomizeCards={randomizeCards} setCards={setCards} setLaps={setLaps}></Button>
-      <CardsList cards={cards}></CardsList>
+      <CardsList cards={cards} setCards={setCards}></CardsList>
       <Laps laps={laps}></Laps>
     </div>
     </>
