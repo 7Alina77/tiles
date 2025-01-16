@@ -4,14 +4,17 @@ import Title from "../atoms/Title"
 import { randomizeCards } from "../../constants/constants";
 import CardsList from "../molecules/CardsList";
 import Laps from "../atoms/Laps";
+import Win from "../atoms/GameWon";
 
 function App() {
   const [cards, setCards] = useState([]);
   const [laps, setLaps] = useState(0);
+  const [gameWon, setGameWon] = useState(false);
 
   useEffect(() => {
     setCards(randomizeCards());
     setLaps(0);
+    setGameWon(false);
   },[]);
 
   useEffect(() => {
@@ -21,13 +24,27 @@ function App() {
     }
   }, [cards]);
 
+  useEffect(() => {
+    const allMatched = cards.length > 0 && cards.every((card) => card.isMatch); 
+    setGameWon(allMatched);
+  }, [cards]);
+
   return (
     <>
-    <div className='font-serif min-h-screen mx-auto my-0 p-4 text-center bg-custom-gradient-alpha'>
+    <div className='font-serif h-screen flex flex-col justify-between mx-auto my-0 text-center bg-custom-gradient-alpha overflow-auto'>
       <Title></Title>
-      <Button randomizeCards={randomizeCards} setCards={setCards} setLaps={setLaps}></Button>
-      <CardsList cards={cards} setCards={setCards}></CardsList>
-      <Laps laps={laps}></Laps>
+      <Button randomizeCards={randomizeCards} setCards={setCards} setLaps={setLaps} />
+      {gameWon === true ?
+      (
+        <Win laps={laps}></Win>
+      )
+      : 
+      (
+        <>
+          <CardsList cards={cards} setCards={setCards}></CardsList>
+          <Laps laps={laps}></Laps>
+        </>
+      )}
     </div>
     </>
   )
