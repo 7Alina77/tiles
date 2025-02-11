@@ -4,7 +4,7 @@ import Title from "../atoms/Title"
 import { randomizeCards } from "../../constants/constants";
 import CardsList from "../molecules/CardsList";
 import Laps from "../atoms/Laps";
-import Win from "../atoms/GameWon";
+import GameWon from "../atoms/GameWon";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -36,7 +36,7 @@ function App() {
       <Button randomizeCards={randomizeCards} setCards={setCards} setLaps={setLaps} />
       {gameWon === true ?
       (
-        <Win laps={laps}></Win>
+        <GameWon laps={laps}></GameWon>
       )
       : 
       (
