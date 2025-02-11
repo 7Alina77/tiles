@@ -6,14 +6,14 @@ function Card({card, onCardClick}) {
       onClick={() => onCardClick(card.id)}
       className="relative rounded-2xl overflow-hidden w-16 h-20 sm:w-24 sm:h-28 drop-shadow-cyanShadow transform transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
       style={{
-        perspective: "1000px", // Enable 3D perspective
+        perspective: "1000px", // создает ощущение глубины при вращении
       }}
     >
       <div
         className="relative w-full h-full transition-transform duration-500 ease-in-out"
         style={{
-          transformStyle: "preserve-3d", // Preserve 3D space
-          transform: card.isOpen ? "rotateY(180deg)" : "rotateY(0deg)", // Apply rotation to flip
+          transformStyle: "preserve-3d", // Сохраняем 3D-пространство
+          transform: card.isOpen ? "rotateY(180deg)" : "rotateY(0deg)", // Переворот
         }}
       >
         {/* Back of the card (cover image initially visible) */}
